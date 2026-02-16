@@ -22,35 +22,7 @@ create policy "Authenticated users can view departments"
   on public.departments for select
   using (auth.role() = 'authenticated');
 
-create policy "Admin can insert departments"
-  on public.departments for insert
-  with check (
-    exists (
-      select 1 from public.profiles
-      where profiles.user_id = auth.uid()
-      and profiles.role = 'admin'
-    )
-  );
-
-create policy "Admin can update departments"
-  on public.departments for update
-  using (
-    exists (
-      select 1 from public.profiles
-      where profiles.user_id = auth.uid()
-      and profiles.role = 'admin'
-    )
-  );
-
-create policy "Admin can delete departments"
-  on public.departments for delete
-  using (
-    exists (
-      select 1 from public.profiles
-      where profiles.user_id = auth.uid()
-      and profiles.role = 'admin'
-    )
-  );
+-- NOTE: Admin policies for departments are created after the profiles table (below)
 
 -- ============================================================
 -- 2. PROFILES (extends auth.users)
@@ -117,6 +89,37 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- Deferred department admin policies (profiles table now exists)
+create policy "Admin can insert departments"
+  on public.departments for insert
+  with check (
+    exists (
+      select 1 from public.profiles
+      where profiles.user_id = auth.uid()
+      and profiles.role = 'admin'
+    )
+  );
+
+create policy "Admin can update departments"
+  on public.departments for update
+  using (
+    exists (
+      select 1 from public.profiles
+      where profiles.user_id = auth.uid()
+      and profiles.role = 'admin'
+    )
+  );
+
+create policy "Admin can delete departments"
+  on public.departments for delete
+  using (
+    exists (
+      select 1 from public.profiles
+      where profiles.user_id = auth.uid()
+      and profiles.role = 'admin'
+    )
+  );
 
 -- ============================================================
 -- 3. DOCTOR SCHEDULES
