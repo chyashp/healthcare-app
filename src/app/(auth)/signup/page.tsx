@@ -29,6 +29,7 @@ export default function SignupPage() {
           full_name: fullName,
           role,
         },
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
       },
     });
 
