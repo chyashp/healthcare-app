@@ -27,7 +27,7 @@ export default function PatientConsultationPage() {
 
       const { data } = await supabase
         .from("appointments")
-        .select("*, doctor:profiles!appointments_doctor_id_fkey(full_name, avatar_url), department:departments(name)")
+        .select("*, doctor:profiles!appointments_doctor_profile_fkey(full_name, avatar_url), department:departments(name)")
         .eq("patient_id", userId)
         .eq("type", "video")
         .in("status", ["scheduled", "confirmed", "in_progress"])

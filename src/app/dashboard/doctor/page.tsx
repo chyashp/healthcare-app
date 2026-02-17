@@ -27,7 +27,7 @@ export default function DoctorDashboard() {
 
       const { data: todayData } = await supabase
         .from("appointments")
-        .select("*, patient:profiles!appointments_patient_id_fkey(full_name, avatar_url), department:departments(name)")
+        .select("*, patient:profiles!appointments_patient_profile_fkey(full_name, avatar_url), department:departments(name)")
         .eq("doctor_id", userId)
         .eq("appointment_date", today)
         .order("start_time", { ascending: true });
@@ -89,7 +89,7 @@ export default function DoctorDashboard() {
     const today = new Date().toISOString().split("T")[0];
     const { data } = await supabase
       .from("appointments")
-      .select("*, patient:profiles!appointments_patient_id_fkey(full_name, avatar_url), department:departments(name)")
+      .select("*, patient:profiles!appointments_patient_profile_fkey(full_name, avatar_url), department:departments(name)")
       .eq("doctor_id", userId)
       .eq("appointment_date", today)
       .order("start_time", { ascending: true });

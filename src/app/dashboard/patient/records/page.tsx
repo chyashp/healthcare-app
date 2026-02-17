@@ -23,7 +23,7 @@ export default function PatientRecordsPage() {
       const supabase = createClient();
       const { data } = await supabase
         .from("medical_records")
-        .select("*, doctor:profiles!medical_records_doctor_id_fkey(full_name, avatar_url, specialization)")
+        .select("*, doctor:profiles!medical_records_doctor_profile_fkey(full_name, avatar_url, specialization)")
         .eq("patient_id", userId)
         .order("created_at", { ascending: false });
 

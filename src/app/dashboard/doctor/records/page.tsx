@@ -36,7 +36,7 @@ export default function DoctorRecordsPage() {
 
     const { data: recordsData } = await supabase
       .from("medical_records")
-      .select("*, patient:profiles!medical_records_patient_id_fkey(full_name, avatar_url)")
+      .select("*, patient:profiles!medical_records_patient_profile_fkey(full_name, avatar_url)")
       .eq("doctor_id", userId)
       .order("created_at", { ascending: false });
 
@@ -45,7 +45,7 @@ export default function DoctorRecordsPage() {
     // Get unique patients from appointments
     const { data: appts } = await supabase
       .from("appointments")
-      .select("patient_id, patient:profiles!appointments_patient_id_fkey(user_id, full_name, avatar_url)")
+      .select("patient_id, patient:profiles!appointments_patient_profile_fkey(user_id, full_name, avatar_url)")
       .eq("doctor_id", userId)
       .eq("status", "completed");
 

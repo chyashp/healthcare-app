@@ -31,7 +31,7 @@ export default function PatientAppointmentsPage() {
     const supabase = createClient();
     const { data } = await supabase
       .from("appointments")
-      .select("*, doctor:profiles!appointments_doctor_id_fkey(full_name, avatar_url, specialization), department:departments(name)")
+      .select("*, doctor:profiles!appointments_doctor_profile_fkey(full_name, avatar_url, specialization), department:departments(name)")
       .eq("patient_id", userId)
       .order("appointment_date", { ascending: false });
 

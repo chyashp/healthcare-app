@@ -40,7 +40,7 @@ export default function AdminDashboard() {
         supabase.from("profiles").select("*").order("created_at", { ascending: false }).limit(5),
         supabase
           .from("appointments")
-          .select("*, patient:profiles!appointments_patient_id_fkey(full_name, avatar_url), doctor:profiles!appointments_doctor_id_fkey(full_name), department:departments(name)")
+          .select("*, patient:profiles!appointments_patient_profile_fkey(full_name, avatar_url), doctor:profiles!appointments_doctor_profile_fkey(full_name), department:departments(name)")
           .order("created_at", { ascending: false })
           .limit(5),
       ]);

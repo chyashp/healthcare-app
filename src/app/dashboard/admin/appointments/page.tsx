@@ -29,7 +29,7 @@ export default function AdminAppointmentsPage() {
       const supabase = createClient();
       const { data } = await supabase
         .from("appointments")
-        .select("*, patient:profiles!appointments_patient_id_fkey(full_name, avatar_url), doctor:profiles!appointments_doctor_id_fkey(full_name, avatar_url), department:departments(name)")
+        .select("*, patient:profiles!appointments_patient_profile_fkey(full_name, avatar_url), doctor:profiles!appointments_doctor_profile_fkey(full_name, avatar_url), department:departments(name)")
         .order("appointment_date", { ascending: false });
 
       setAppointments(data || []);
