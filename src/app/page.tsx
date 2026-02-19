@@ -92,7 +92,7 @@ export default function Home() {
           <p className="text-sm text-gray-500 dark:text-gray-400">
             A portfolio project by{" "}
             <a
-              href="https://nanushi.dev"
+              href="https://nanushi.org"
               className="font-medium text-brand-600 hover:text-brand-500 dark:text-brand-400"
               target="_blank"
               rel="noopener noreferrer"
