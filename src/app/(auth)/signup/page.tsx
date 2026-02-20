@@ -52,14 +52,14 @@ export default function SignupPage() {
               <span className="text-lg font-bold text-white">H</span>
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white">
-              HealthConnect
+              HealthPulse
             </span>
           </Link>
           <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-white">
             Create your account
           </h1>
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Get started with HealthConnect
+            Get started with HealthPulse
           </p>
         </div>
 

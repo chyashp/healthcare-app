@@ -139,7 +139,7 @@ export default function Sidebar() {
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500">
           <span className="text-sm font-bold text-white">H</span>
         </div>
-        <span className="font-bold text-white">HealthConnect</span>
+        <span className="font-bold text-white">HealthPulse</span>
       </div>
 
       {/* Role badge */}

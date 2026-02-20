@@ -42,7 +42,7 @@ export default function LoginPage() {
               <span className="text-lg font-bold text-white">H</span>
             </div>
             <span className="text-xl font-bold text-gray-900 dark:text-white">
-              HealthConnect
+              HealthPulse
             </span>
           </Link>
           <h1 className="mt-6 text-2xl font-bold text-gray-900 dark:text-white">

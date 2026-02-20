@@ -27,7 +27,7 @@ export default function Home() {
               <span className="text-sm font-bold text-white">H</span>
             </div>
             <span className="font-bold text-gray-900 dark:text-white">
-              HealthConnect
+              HealthPulse
             </span>
           </Link>
           <div className="flex items-center gap-3">

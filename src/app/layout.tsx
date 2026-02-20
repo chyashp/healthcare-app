@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HealthConnect — Healthcare Appointment System",
+  title: "HealthPulse — Healthcare Appointment System",
   description:
     "Appointment scheduling and telemedicine platform for medical practices with role-based dashboards, medical records, and video consultations.",
 };

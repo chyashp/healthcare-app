@@ -83,7 +83,7 @@ export default function MobileSidebar() {
             <span className="text-xs font-bold text-white">H</span>
           </div>
           <span className="text-sm font-bold text-gray-900 dark:text-white">
-            HealthConnect
+            HealthPulse
           </span>
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function MobileSidebar() {
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-500">
                   <span className="text-sm font-bold text-white">H</span>
                 </div>
-                <span className="font-bold text-white">HealthConnect</span>
+                <span className="font-bold text-white">HealthPulse</span>
               </div>
               <button onClick={close} className="text-gray-400 hover:text-white">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
